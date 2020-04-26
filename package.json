@@ -1,0 +1,36 @@
+{
+  "name": "haluka-cli",
+  "version": "0.0.0-0",
+  "description": "A cli tool for Haluka Framework",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "jest"
+  },
+  "bin": {
+    "haluka": "./bin/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/halukajs/haluka-cli.git"
+  },
+  "keywords": [
+    "haluka",
+    "web",
+    "framework",
+    "cli"
+  ],
+  "author": "Robin Panta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/halukajs/haluka-cli/issues"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "homepage": "https://github.com/halukajs/haluka-cli#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "jest": "^25.4.0"
+  }
+}
