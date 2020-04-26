@@ -4,24 +4,16 @@ module.exports = {
     node: true,
   },
   extends: [
-    // 'airbnb-base',
+    'airbnb-base',
   ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
-  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: [
-    '@typescript-eslint',
-  ],
   rules: {
-    "indent": ["error", "tab"],
-    "space-before-function-paren": ["error", "always"],
-    "semi": ["error", "never"],
-	"no-tabs": ["error", { allowIndentationTabs: true }],
   },
 };
