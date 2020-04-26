@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "jest"
+    "test": "cross-env NODE_ENV=test jest"
   },
   "bin": {
     "haluka": "./bin/cli.js"
@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/halukajs/haluka-cli#readme",
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
