@@ -4,7 +4,7 @@ const commander = require('../lib/commander');
 
 test('Commander', () => {
   test('should return yargs command options', () => {
-    const newCommand =commander({
+    const newCommand = commander({
       command: 'test_command',
       alias: ['tc'],
       description: 'A test command.',
