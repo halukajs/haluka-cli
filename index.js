@@ -11,7 +11,7 @@ const VERSION = require('./package.json').version;
 
 try {
   yargs.commandDir('commands')
-    .usage(`${chalk.bold.underline('Usage:')} ${chalk.green('$0')} ${chalk.yellow('<command>')} ${chalk.blue('[<args>] [<options>]')}`)
+    .usage(`${chalk.bold.underline('Usage:')} ${chalk.green('$0')} ${chalk.yellow('<command>')} ${chalk.blue('[args...] [options...]')}`)
     // .completion('completion', chalk.yellowBright('Command completed.'))
     .demandCommand()
     .help('help', chalk.yellowBright('Show help for the command'))
