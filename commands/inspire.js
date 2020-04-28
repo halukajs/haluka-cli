@@ -13,9 +13,9 @@ const inspirations = [
  * Copyright (c) Robin Panta
  * Inspire Command
  */
-module.exports.inspire = command({
+module.exports = command({
   command: 'inspire',
-  alias: ['i'],
+  // alias: ['i'],
   description: 'Inspires you to achieve more.',
 }, () => {
   console.log();
