@@ -7,6 +7,7 @@ describe('Util', () => {
   describe('#getCurrentPath', () => {
     test('should return current working directory', () => {
       expect(util.getCurrentPath()).toBe(path.resolve(`${__dirname}/../`));
+      expect(util.getCurrentPath('sample_file', 'log.log')).toBe(path.resolve(`${__dirname}/../sample_file/log.log`));
     });
   });
 
