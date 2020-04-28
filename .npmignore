@@ -37,9 +37,13 @@ CONTRIBUTING.md
 .editorconfig
 .eslintignore
 .eslintrc
+.eslintrc.js
 .babelrc
 .gitignore
 .eslintcache
 lib
 tsconfig.json
 *.lock
+__test__
+.circleci
+jest.config.js
