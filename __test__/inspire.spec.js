@@ -2,6 +2,8 @@
 
 const inspireCommand = require('../commands/inspire');
 
-test('Inspire Command', () => {
-  expect(() => inspireCommand.handler()).not.toThrow();
+describe('Inspire Command', () => {
+  test('should not throw', () => {
+    expect(() => inspireCommand.handler()).not.toThrow();
+  });
 });
