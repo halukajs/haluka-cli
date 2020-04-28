@@ -41,9 +41,8 @@ module.exports = command({
   }
 
   // In the application
-  const halukaVersion = pkg.dependencies.haluka;
-  console.log(`Application Haluka Version: ${halukaVersion}`);
-  console.log(chalk.greenBright(`Haluka CLI running inside '${pkg.name}'`));
-  console.log(yargv);
-  // console.log('Called from Outside');
+  console.log(chalk.greenBright(`CLI running inside '${pkg.name}'`));
+  const { command: appCommand } = yargv;
+  console.log(`Attempting to run ${chalk.yellowBright(appCommand)} from '${pkg.name}'.`);
+  // TODO: application cli config and task runner
 });
