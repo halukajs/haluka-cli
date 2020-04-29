@@ -41,7 +41,6 @@ CONTRIBUTING.md
 .babelrc
 .gitignore
 .eslintcache
-lib
 tsconfig.json
 *.lock
 __test__
