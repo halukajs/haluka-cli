@@ -64,8 +64,6 @@ module.exports = command({
   let commands = yargv.commands || ['default'];
   commands = commands.length === 0 ? ['default'] : commands;
 
-  console.log(`Attempting to run ${chalk.yellowBright(commands.join(', '))} from '${pkg.name}'.`);
-
   const startTime = Date.now();
 
   const rc = loadRC();
@@ -76,12 +74,15 @@ module.exports = command({
     process.exit(0);
   }
 
-  const executables = (commands.map((x) => rc[x])).reverse();
+  const executables = (commands.map((x) => rc[x]));
 
-  console.log();
-  // task();
-  console.log();
 
+  executables.forEach((task, idx) => {
+    console.log(chalk.yellowBright(`Running '${commands[idx]}'...`));
+    task();
+    console.log(chalk.greenBright(`Completed '${commands[idx]}'...`));
+  });
+  console.log();
   const endTime = Date.now();
   console.log(chalk.greenBright(`Command executed in ${(endTime - startTime) / 1000}s.`));
 });
