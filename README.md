@@ -1,6 +1,8 @@
+# Haluka CLI 🍖
+> The CLI Toolkit for Haluka
 
-# Haluka CLI ⚗️
 
+[![Node Version][node-image]][npm-link]
 [![npm][npm-version]][npm-link]
 [![License: MIT][license-image]][license-link]
 [![CircleCI][ci-image]][ci-link]
@@ -10,33 +12,34 @@
 
 [![GitHub watchers](https://img.shields.io/github/watchers/halukajs/haluka-cli.svg?style=social&label=Watch)](https://github.com/halukajs/haluka-cli/watchers)
 
-Command Line Utility for Haluka framework.
+[Haluka CLI](https://haluka.dev/cli) is a command line utility for Haluka framework.
 
-# Installation
+## Installation
 Installation of Haluka CLI is fairy easy. It can be installed from `npm` by:
 ```bash
 npm install -g haluka-cli
 ```
 
-# Usage
+## Usage
 ```bash
 > haluka <command> [args...] [options...]
 ```
 
-# Available Commands
+## Available Commands
 List of all the available commands in Haluka CLI can be found in [Haluka CLI docs](https://haluka.dev/cli).
 
-# License
+## License
 
 Licensed under [MIT License](license-link).
 
-# Author
+## Author
 
 Crafted with ❤️ by [Robin Panta](https://github.com/hacktivistic).
 
-### Contributors
+#### Contributors
 [List of contributers](https://github.com/halukajs/haluka-cli/graphs/contributors).
 
+[node-image]: https://img.shields.io/node/v/haluka-cli.svg?style=default
 [npm-version]: https://img.shields.io/npm/v/haluka-cli.svg
 [npm-link]: https://www.npmjs.com/package/haluka-cli
 [downloads]: https://img.shields.io/npm/dt/haluka-cli.svg
