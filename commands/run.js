@@ -1,6 +1,7 @@
 /* eslint-disable import/no-dynamic-require */
 
 const chalk = require('chalk');
+const async = require('async');
 const command = require('../lib/commander');
 const util = require('../lib/util');
 
@@ -22,16 +23,18 @@ function loadPackage() {
 
 function loadRC() {
   let rc;
-  try {
-    // eslint-disable-next-line global-require
-    rc = require(util.getCurrentPath('.halukacli'));
-  } catch (error) {
-    if (error.code === 'MODULE_NOT_FOUND') {
-      console.error(chalk.redBright('Error: ".halukacli.js" file not found in the project.'));
-    } else {
+  const rcFile = util.getCurrentPath('.halukacli.js');
+  if (util.checkHalukaRC(rcFile)) {
+    try {
+      // eslint-disable-next-line global-require
+      rc = require(rcFile);
+    } catch (error) {
       console.error(chalk.redBright('You have error in your .halukacli.js file.'));
       console.error(chalk.yellowBright(error));
+      process.exit(1);
     }
+  } else {
+    console.error(chalk.redBright('.halukacli.js file not found in the active directory.'));
     process.exit(1);
   }
   return rc;
@@ -74,15 +77,20 @@ module.exports = command({
     process.exit(0);
   }
 
-  const executables = (commands.map((x) => rc[x]));
+  const executables = (commands.map((x) => async () => {
+    console.log(); console.log(chalk.yellowBright(`Running '${x}'...`)); console.log();
+    await rc[x]();
+    console.log(); console.log(chalk.greenBright(`Completed '${x}'...`));
+  }));
 
-
-  executables.forEach((task, idx) => {
-    console.log(chalk.yellowBright(`Running '${commands[idx]}'...`));
-    task();
-    console.log(chalk.greenBright(`Completed '${commands[idx]}'...`));
+  async.series(executables, (err) => {
+    console.log();
+    const endTime = Date.now();
+    if (err) {
+      const stackTrace = err.stack.split('\n').filter((x) => x.includes(process.cwd())).join('\n\t\t');
+      console.log(chalk.redBright(`Error occurred during command execution: \n\n \t\t${err} \n\t\t${stackTrace}\n\n`));
+      process.exit(1);
+    }
+    console.log(chalk.greenBright(`Command executed in ${(endTime - startTime) / 1000}s.`));
   });
-  console.log();
-  const endTime = Date.now();
-  console.log(chalk.greenBright(`Command executed in ${(endTime - startTime) / 1000}s.`));
 });
