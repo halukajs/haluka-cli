@@ -1,9 +1,7 @@
-
 const chalk = require('chalk');
 const fs = require('fs');
 const command = require('../lib/commander');
 const util = require('../lib/util');
-
 
 /**
  * Copyright (c) Robin Panta

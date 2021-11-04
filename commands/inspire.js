@@ -1,4 +1,3 @@
-
 const chalk = require('chalk');
 const command = require('../lib/commander');
 

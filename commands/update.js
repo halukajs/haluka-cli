@@ -1,4 +1,3 @@
-
 const chalk = require('chalk');
 const https = require('https');
 const semver = require('semver');

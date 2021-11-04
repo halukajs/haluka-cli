@@ -40,7 +40,6 @@ function loadRC() {
   return rc;
 }
 
-
 /**
  * Copyright (c) Robin Panta
  * Inspire Command
