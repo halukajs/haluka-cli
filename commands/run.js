@@ -50,19 +50,6 @@ module.exports = command({
   description: 'Runs commands from active Haluka application.',
 }, (yargv) => {
   const pkg = loadPackage();
-  // if (!util.checkHalukaDependency(pkg)) {
-  //   console.error(chalk.redBright('Dependency \'haluka\' is not installed locally on this project.'));
-  //   console.info(chalk.yellowBright('Please install \'haluka\' first.'));
-  //   process.exit(1);
-  // }
-
-  // if (!util.verifyHalukaVersion(pkg)) {
-  //   console.error(chalk.redBright(`Your project '${pkg.name}' uses the version of haluka which is not supported by CLI tool.`));
-  //   console.info(chalk.yellowBright(`Please use haluka of version ${util.requiredHaluka()}.`));
-  //   process.exit(1);
-  // }
-
-  // console.log(yargv)
 
   // In the application
   console.log(chalk.greenBright(`CLI running inside '${pkg.name}'`));
@@ -80,16 +67,12 @@ module.exports = command({
   }
 
   const executables = [async () => {
+    console.log(); console.log(chalk.yellowBright(`Running '${commands[0]}'...`)); console.log();
 
-  console.log(); console.log(chalk.yellowBright(`Running '${commands[0]}'...`)); console.log();
+    const cmd = commands[0].split(':');
+    await rc[cmd[0]](cmd[1] || '', commands.shift());
 
-  let cmd = commands[0].split(":")
-
-  // console.log(`Run ${cmd[0]} with run param '${cmd[1]}' and args '${commands.splice(-1).join(',')}'`)
-
-  await rc[cmd[0]](cmd[1] || '', commands.shift());
-    
-  console.log(); console.log(chalk.greenBright(`Completed '${commands[0]}'...`));
+    console.log(); console.log(chalk.greenBright(`Completed '${commands[0]}'...`));
   }];
 
   async.series(executables, (err) => {
