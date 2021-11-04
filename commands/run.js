@@ -58,17 +58,19 @@ module.exports = command({
   const startTime = Date.now();
 
   const rc = loadRC();
-  const notFound = commands.filter((x) => !(x in rc));
 
-  if (notFound.length > 0) {
-    console.log(chalk.redBright(`No command registered for '${notFound.join(', ')}'. Check your '.halukacli.js' file and try again.`));
+  const cmd = commands[0].split(':');
+
+  const notFound = !(cmd in rc);
+
+  if (notFound) {
+    console.log(chalk.redBright(`No command registered for '${cmd}'. Check your '.halukacli.js' file and try again.`));
     process.exit(0);
   }
 
   const executables = [async () => {
     console.log(); console.log(chalk.yellowBright(`Running '${commands[0]}'...`)); console.log();
-
-    const cmd = commands[0].split(':');
+    
     await rc[cmd[0]](cmd[1] || '', commands.shift());
 
     console.log(); console.log(chalk.greenBright(`Completed '${commands[0]}'...`));
