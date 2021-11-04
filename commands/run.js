@@ -71,7 +71,7 @@ module.exports = command({
   const executables = [async () => {
     console.log(); console.log(chalk.yellowBright(`Running '${commands[0]}'...`)); console.log();
 
-    await rc[cmd[0]](cmd[1] || '', commands.shift());
+    await rc[cmd[0]](cmd[1] || '', commands.splice(-1));
 
     console.log(); console.log(chalk.greenBright(`Completed '${commands[0]}'...`));
   }];
