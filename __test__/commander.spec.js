@@ -2,7 +2,7 @@
 
 const chalk = require('chalk');
 
-const commander = require('../lib/commander');
+const commander = require('../lib/util').command;
 
 
 describe('Commander', () => {
