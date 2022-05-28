@@ -1,5 +1,5 @@
 const chalk = require('chalk');
-const command = require('../lib/commander');
+const { command } = require('../lib/util')
 
 const inspirations = [
   'If Einstein were alive, he would use Haluka.',
@@ -8,13 +8,9 @@ const inspirations = [
   'Life is 10% what happens to us and 90% how we react to it.',
   'When life give you lemons, use Haluka to blend.',
 ];
-/**
- * Copyright (c) Robin Panta
- * Inspire Command
- */
+
 module.exports = command({
   command: 'inspire',
-  // alias: ['i'],
   description: 'Inspires you to achieve more.',
 }, () => {
   console.log();

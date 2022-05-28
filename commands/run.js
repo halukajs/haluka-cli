@@ -2,7 +2,7 @@
 
 const chalk = require('chalk');
 const async = require('async');
-const command = require('../lib/commander');
+const { command } = require('../lib/util')
 const util = require('../lib/util');
 
 function loadPackage() {
@@ -40,13 +40,9 @@ function loadRC() {
   return rc;
 }
 
-/**
- * Copyright (c) Robin Panta
- * Inspire Command
- */
 module.exports = command({
   command: 'run [commands...]',
-  description: 'Runs commands from active Haluka application.',
+  description: 'Runs commands from active Haluka App.',
 }, (yargv) => {
   const pkg = loadPackage();
 
