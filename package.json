@@ -1,6 +1,6 @@
 {
   "name": "haluka-cli",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "description": "A CLI tool for Haluka Framework",
   "main": "index.js",
   "scripts": {
