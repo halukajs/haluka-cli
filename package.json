@@ -1,7 +1,7 @@
 {
   "name": "haluka-cli",
   "version": "0.3.4",
-  "description": "A cli tool for Haluka Framework",
+  "description": "A CLI tool for Haluka Framework",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
@@ -26,24 +26,24 @@
     "url": "https://github.com/halukajs/haluka-cli/issues"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=14"
   },
   "homepage": "https://github.com/halukajs/haluka-cli#readme",
   "devDependencies": {
-    "cross-env": "^7.0.2",
-    "eslint": "^8.1.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2",
-    "jest": "^27.3.1"
+    "cross-env": "^7.0.3",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "jest": "^28.1.0"
   },
   "dependencies": {
-    "async": "^3.2.0",
-    "chalk": "^4.0.0",
-    "cli-table3": "^0.6.0",
-    "debug": "^4.1.1",
-    "inquirer": "^7.1.0",
-    "semver": "^7.3.2",
-    "slugify": "^1.6.1",
-    "yargs": "^15.3.1"
+    "async": "^3.2.3",
+    "chalk": "^4.1.0",
+    "cli-table3": "^0.6.2",
+    "debug": "^4.3.4",
+    "inquirer": "^8.2.4",
+    "semver": "^7.3.7",
+    "slugify": "^1.6.5",
+    "yargs": "^17.5.1"
   }
 }
