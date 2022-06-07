@@ -4,6 +4,7 @@ const chalk = require('chalk');
 const async = require('async');
 const { command } = require('../lib/util')
 const util = require('../lib/util');
+const inquirer = require('inquirer')
 
 function loadPackage() {
   let pkg;
@@ -67,7 +68,13 @@ module.exports = command({
   const executables = [async () => {
     console.log(); console.log(chalk.yellowBright(`Running '${commands[0]}'...`)); console.log();
 
-    await rc[cmd[0]](cmd[1] || '', commands.splice(-1));
+    let opt = {
+      method: cmd[1] || 'index',
+      params: commands.splice(-1),
+      prompt: inquirer.createPromptModule()
+    }
+
+    await rc[cmd[0]](opt);
 
     console.log(); console.log(chalk.greenBright(`Completed '${commands[0]}'...`));
   }];
