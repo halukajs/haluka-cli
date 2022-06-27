@@ -74,15 +74,15 @@ module.exports = command({
   const executables = [async () => {
     if (typeof rc['preHooks'] == 'function') {
       console.log(chalk.yellowBright(`Running pre-hooks...`));
-      await rc['preHooks']
+      await rc['preHooks'](opt);
     }
   },
   async () => {
-      console.log(chalk.yellowBright(`Running '${commands[0]}'...`));
+      console.log(chalk.yellowBright(`Running '${cmd[0]}'...`));
 
       await rc[cmd[0]](opt);
       
-      console.log(); console.log(chalk.greenBright(`Completed '${commands[0]}'...`));
+      console.log(); console.log(chalk.greenBright(`Completed '${cmd[0]}'...`));
   }];
 
   async.series(executables, (err) => {
