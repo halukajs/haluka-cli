@@ -14,11 +14,11 @@
  const nodeVersion = process.versions.node
  const majorV = nodeVersion.split('.')[0]
  
- if (majorV < 14) {
+ if (majorV < 12) {
 	 console.error(
 		 'You are running Node ' +
 		 nodeVersion + '.\n' +
-			'Haluka CLI requires Node 14 or higher. \n' +
+			'Haluka CLI requires Node 12 or higher. \n' +
 			'Please update your version of Node.'
 	 )
 	 process.exit(1)
