@@ -65,18 +65,24 @@ module.exports = command({
     process.exit(0);
   }
 
+  let opt = {
+    method: cmd[1] || 'index',
+    params: commands.splice(-1),
+    prompt: inquirer.createPromptModule()
+  }
+
   const executables = [async () => {
-    console.log(); console.log(chalk.yellowBright(`Running '${commands[0]}'...`)); console.log();
-
-    let opt = {
-      method: cmd[1] || 'index',
-      params: commands.splice(-1),
-      prompt: inquirer.createPromptModule()
+    if (typeof rc['preHooks'] == 'function') {
+      console.log(chalk.yellowBright(`Running pre-hooks...`));
+      await rc['preHooks']
     }
+  },
+  async () => {
+      console.log(chalk.yellowBright(`Running '${commands[0]}'...`));
 
-    await rc[cmd[0]](opt);
-
-    console.log(); console.log(chalk.greenBright(`Completed '${commands[0]}'...`));
+      await rc[cmd[0]](opt);
+      
+      console.log(); console.log(chalk.greenBright(`Completed '${commands[0]}'...`));
   }];
 
   async.series(executables, (err) => {
