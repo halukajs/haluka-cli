@@ -71,9 +71,9 @@ module.exports = command({
     prompt: inquirer.createPromptModule()
   }
 
-  const executables = [async () => {
+  const executables = [
+  async () => {
     if (typeof rc['preHooks'] == 'function') {
-      console.log(chalk.yellowBright(`Running pre-hooks...`));
       await rc['preHooks'](opt);
     }
   },
@@ -83,7 +83,13 @@ module.exports = command({
       await rc[cmd[0]](opt);
       
       console.log(); console.log(chalk.greenBright(`Completed '${cmd[0]}'...`));
-  }];
+  },
+  async () => {
+    if (typeof rc['postHooks'] == 'function') {
+      await rc['preHooks'](opt);
+    }
+  },
+];
 
   async.series(executables, (err) => {
     console.log();
