@@ -86,7 +86,7 @@ module.exports = command({
   },
   async () => {
     if (typeof rc['postHooks'] == 'function') {
-      await rc['preHooks'](opt);
+      await rc['postHooks'](opt);
     }
   },
 ];
